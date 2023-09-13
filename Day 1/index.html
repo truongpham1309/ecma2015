@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .d-flex {
+            display: flex;
+            justify-content: space-between;
+        }
+        .text-center {  
+            text-align: center;
+        }
+        .style-type{
+            list-style-type: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Thong tin ca nhan</h1>
+    <div id="cart"></div>
+    <div id="list_products"></div>
+    <script>
+        const myInformation ={
+            name:'Pham Dinh Truong',
+            age:20,
+            address:'Ha Noi',
+            gender:'Nam',
+            languagesProgrammingList:["PHP","Python","Java","JavaScript","Ruby","Go"]
+        }
+        var products = [
+            {id:1, name: "Product 1" , price: 2000},
+            {id:2, name: "Product 2", price: 3000},
+            {id:3, name: "Product 3", price: 4000},
+            {id:4, name: "Product 4", price: 5000},
+            {id:5, name: "Product 5", price: 6000},
+            {id:6, name: "Product 6", price: 7000},
+        ]
+        const cart = document.querySelector('#cart');
+
+        cart.innerHTML = `
+            Name: ${myInformation.name}<br>
+            Age: ${myInformation.age}<br>
+            Address: ${myInformation.address}<br>
+            Gender: ${myInformation.gender}<br>
+            languagesProgrammingList: ${myInformation.languagesProgrammingList.map((e) => {
+                return `
+                    ${e}    
+                `
+            }).join("&nbsp |")}
+            
+            <hr>
+        `
+
+        const list_products = document.querySelector('#list_products');
+        list_products.innerHTML = `
+        <h2 class="text-center">Product List</h2>
+        <div class="d-flex">
+            ${products.map((e) => {
+                return `
+                    <div data-id=${e.id}>
+                        <h3>Name: ${e.name}</h3>
+                        <p>Price: ${e.price}</p>
+                    </div>`
+            }).join("")}
+            
+        `
+        
+    </script>
+</body>
+</html>
