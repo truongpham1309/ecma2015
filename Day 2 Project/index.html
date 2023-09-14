@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="products"></div>
+    <script>
+        const products = [
+            { id: 1, name: "Product 1", price: 2000 },
+            { id: 2, name: "Product 2", price: 3000 },
+            { id: 3, name: "Product 3", price: 4000 },
+            { id: 4, name: "Product 4", price: 5000 },
+            { id: 5, name: "Product 5", price: 6000 },
+            { id: 6, name: "Product 6", price: 7000 },
+        ]
+        const list_products = document.querySelector('#products');
+        const productsList = (arrs, element) => {
+            if (arrs.length > 0) {
+                element.innerHTML = `
+        <h2 class="text-center">Product List</h2>
+            <div class="d-flex">
+            ${arrs.map((e) => {
+                    return `
+                    <div data-id=${e.id}>
+                        <h3>Name: ${e.name}</h3>
+                        <p>Price: ${e.price}</p>
+                    </div>`
+                }).join("")}
+            </div>
+            `
+            }
+            else {
+                element.innerHTML = "Khong co san pham nao"
+            }
+        }
+        productsList(products, list_products);
+    </script>
+</body>
+
+</html>

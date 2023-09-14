@@ -29,14 +29,7 @@
             gender:'Nam',
             languagesProgrammingList:["PHP","Python","Java","JavaScript","Ruby","Go"]
         }
-        var products = [
-            {id:1, name: "Product 1" , price: 2000},
-            {id:2, name: "Product 2", price: 3000},
-            {id:3, name: "Product 3", price: 4000},
-            {id:4, name: "Product 4", price: 5000},
-            {id:5, name: "Product 5", price: 6000},
-            {id:6, name: "Product 6", price: 7000},
-        ]
+        
         const cart = document.querySelector('#cart');
 
         cart.innerHTML = `
@@ -52,7 +45,16 @@
             
             <hr>
         `
+        
 
+        var products = [
+            {id:1, name: "Product 1" , price: 2000},
+            {id:2, name: "Product 2", price: 3000},
+            {id:3, name: "Product 3", price: 4000},
+            {id:4, name: "Product 4", price: 5000},
+            {id:5, name: "Product 5", price: 6000},
+            {id:6, name: "Product 6", price: 7000},
+        ]
         const list_products = document.querySelector('#list_products');
         list_products.innerHTML = `
         <h2 class="text-center">Product List</h2>
@@ -64,9 +66,8 @@
                         <p>Price: ${e.price}</p>
                     </div>`
             }).join("")}
-            
+        </div>
         `
-        
     </script>
 </body>
 </html>
