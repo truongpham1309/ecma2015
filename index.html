@@ -1,15 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
 </head>
+
 <body>
+  <form id="myForm" action="">
+    <label for="task" name="task">New task</label><br>
+    <input type="text" id="task" placeholder="Please writing task..." />
+    <button id="submit">Add task</button>
+  </form>
 
-    <div class="list">
+  <div id="list-task">
+    <!-- them task -->
+  </div>
+  <script>
+    const submit = document.getElementById("submit");
+    let listTaskElement = document.getElementById("list-task");
+    let content = localStorage.getItem("tasks") === null ? '' : localStorage.getItem("tasks");
 
-    </div>
-    <script src="app.js"></script>
+    listTaskElement.innerHTML = content; // render
+
+    submit.addEventListener("click", (e) => {
+      e.preventDefault(); 
+      const taskElement = document.getElementById("task");
+      if (taskElement.value.length > 0) {
+        let newContent = `<li>${task.value}</li>`;
+        content += newContent; // them tasks vao mang
+        localStorage.setItem("tasks", content); // luu vao localStorage
+        listTaskElement.innerHTML = content; // re-render
+        taskElement.value = ""; // delete value input
+        taskElement.focus(); 
+      }
+
+    });
+  </script>
 </body>
+
 </html>

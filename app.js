@@ -33,7 +33,7 @@
 
 // const source = [1,2,3,4,5,6,7,8,9,10];
 // const removeFristTwo = (list) => {
-//     const [a,b,...arr] =  list;
+//     const [a,b,...arr] = list;
 //     return arr;
 // }
 // console.log(removeFristTwo(source));
@@ -77,12 +77,15 @@
 
 // console.log(sumNumber(5));
 
-const getcountDownIterator = function *(countDown){
-    let i = countDown;
-    yield i;
-    while( i > 1){
-        yield --i;
-    }
-}
+// const getcountDownIterator = function *(countDown) {
+//     let i = countDown;
+//     yield i;
+//     while (i > 1) {
+//         yield --i;
+//     }
+// }
 
-console.log([...getcountDownIterator(10)]);
+
+// API
+const URL_API = "https://localhost/3000/user";
+

@@ -26,7 +26,7 @@
             { id: 3, name: "Product 3", price: 4000 },
             { id: 4, name: "Product 4", price: 5000 },
             { id: 5, name: "Product 5", price: 6000 },
-            { id: 6, name: "Product 6", price: 7000 },
+            { id: 6, name: "Product 6", price: 7000 }
         ]
         const list_products = document.querySelector('#products');
         const productsList = (arrs, element) => {
@@ -49,6 +49,10 @@
             }
         }
         productsList(products, list_products);
+
+        products.forEach(element => {
+            console.log(element);
+        });
     </script>
 </body>
 

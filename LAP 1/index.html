@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lap 1</title>
+</head>
+<style>
+    .vanchuyen{
+        display: none;
+    }
+</style>
+
+<body>
+    <div>
+        <h2>ĐẶT HÀNG</h2>
+        <form onsubmit="return formSubmit()">
+            <span id="thongBao"></span><br>
+            <label for="">Số lượng</label><br>
+            <input type="number" name="" id="soluong"> <br>
+
+            <label for="">Sản phẩm</label><br>
+            <input type="text" name="" id="sanpham"><br>
+
+            <label for="">Loại</label><br>
+            <select name="" id="loai" onchange="dongiafunc(document.getElementById('loai').value)">
+                <option value="" ></option>
+                <option value="1" >Loại 1</option>
+                <option value="2">Loại 2</option>
+                <option value="3">Loại 3</option>
+            </select> <br>
+            
+            <label for="">Đơn giá</label><br>
+            <input type="text" name="" id="dongia"><br>
+
+            <div class="vanchuyen">
+                <label for="">Phí vận chuyển</label>
+                <input type="number" name="" id="phivanchuyen" value="100000" disabled>
+            </div>
+
+            <label for="">Nơi nhận hàng: </label>
+            Nội thành
+            <input type="radio" name="address" id="" onclick="vanchuyen(false)">
+            Ngoại thành
+            <input type="radio" name="address" id="" onclick="vanchuyen(true)"><br>
+
+            <button>Đặt mua</button>
+
+        </form>
+    </div>
+    <div class="showInfo">
+
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>

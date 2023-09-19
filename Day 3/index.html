@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 3</title>
+</head>
+
+<body>
+    <form id="task-form">
+        <label for="task" name="task">New task</label><br>
+        <input type="text" id="task" placeholder="Please writing task...">
+        <button id="btn-add" type="submit">Add</button>
+    </form>
+    <div id="list-task">
+
+    </div>
+    <script>
+        let taskElement = document.querySelector('#list-task');
+        let content = localStorage.getItem('task') !== null ? JSON.parse(localStorage.getItem('task')) : [];
+        
+        taskElement.innerHTML = `
+                ${content.map((task) => {
+                    return `
+                        <li> ${task} </li>
+                    `
+                }).join(' ')}
+            `
+
+        let btn_add = document.querySelector('#btn-add');
+
+        btn_add.addEventListener('click', (e) => {
+            e.preventDefault();
+            const input_task = document.querySelector('#task');
+            if(input_task.value.length > 0) {
+            content = [...content, input_task.value];
+            localStorage.setItem('task', JSON.stringify(content));
+            input_task.value = '';
+            taskElement.innerHTML = `
+                ${content.map((task) => {
+                return `
+                    <li> ${task} </li>
+                    `
+            }).join(' ')}
+            `
+            }
+        })
+    </script>
+</body>
+
+</html>
